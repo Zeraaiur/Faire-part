@@ -2,25 +2,17 @@
 <p>Find me in app/views/faire_parts/index.html.erb</p>
 
 <%= form_tag(root_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :format, params[:format], placeholder: "Format" %>
-<%= text_field_tag :pliant, params[:pliant], placeholder: "Carte Pliante" %>
-<%= text_field_tag :couleur, params[:couleur], placeholder: "Couleur" %>
-<%= text_field_tag :verso, params[:verso], placeholder: "Verso" %>
-<%= submit_tag "Search", :name => nil %>
+<% @formats.each do |format|%>
+<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1">
+  <div class = "tags text-center">
+    <button class="btn btn-primary list-inline"><%= format %><%= check_box_tag "clicked_format[format]", format %></button>
+  </div>
+</div>
 <% end %>
 
-<% if @fairepart %>
-<% @fairepart.each do |fairepart|  %>
+<%= submit_tag "format", :name => nil, style: "display: none" %>
+<% end %>
 
+<% @faireparts.each do |fairepart| %>
 <%= fairepart.nom %>
-
 <% end %>
-
-<% end %>
-
-<% if @verso  %>
-
-<%= @verso.class %>
-
-<% end %>
-

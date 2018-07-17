@@ -37,7 +37,7 @@ fairepart = Fairepart.new(
   pliant:true,
   couleur:true,
   verso:true,
-  format:"4x5"
+  format:"4.25x5.5"
   )
 fairepart.save!
 
@@ -47,7 +47,7 @@ fairepart = Fairepart.new(
   pliant:true,
   couleur:false,
   verso:true,
-  format:"4x5"
+  format:"4.25x5.5"
   )
 fairepart.save!
 
@@ -100,7 +100,7 @@ fairepart = Fairepart.new(
   pliant:false,
   couleur:true,
   verso:false,
-  format:"4x5"
+  format:"4.25x5.5"
   )
 fairepart.save!
 
@@ -110,7 +110,7 @@ fairepart = Fairepart.new(
   pliant:false,
   couleur:false,
   verso:false,
-  format:"4x5"
+  format:"4.25x5.5"
   )
 fairepart.save!
 
@@ -120,7 +120,7 @@ fairepart = Fairepart.new(
   pliant:false,
   couleur:true,
   verso:true,
-  format:"4x5"
+  format:"4.25x5.5"
   )
 fairepart.save!
 
@@ -130,7 +130,7 @@ fairepart = Fairepart.new(
   pliant:false,
   couleur:false,
   verso:true,
-  format:"4x5"
+  format:"4.25x5.5"
   )
 fairepart.save!
 
