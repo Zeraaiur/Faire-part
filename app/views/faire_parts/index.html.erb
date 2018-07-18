@@ -1,18 +1,7 @@
-<h1>FaireParts#index</h1>
-<p>Find me in app/views/faire_parts/index.html.erb</p>
+<%= render "search_form" %>
 
-<%= form_tag(root_path, :method => "get", id: "search-form") do %>
-<% @formats.each do |format|%>
-<div class="col-xs-6 col-sm-4 col-md-2 col-lg-1">
-  <div class = "tags text-center">
-    <button class="btn btn-primary list-inline"><%= format %><%= check_box_tag "clicked_format[format]", format %></button>
-  </div>
+<div class="flex-mozaic">
+  <%= render "fairepart_list" %>
 </div>
-<% end %>
 
-<%= submit_tag "format", :name => nil, style: "display: none" %>
-<% end %>
-
-<% @faireparts.each do |fairepart| %>
-<%= fairepart.nom %>
-<% end %>
+<div id="fairepart-index"></div>

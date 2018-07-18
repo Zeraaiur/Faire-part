@@ -1,0 +1,19 @@
+
+  <%= form_tag root_path, remote: true, method: :get, id: "form" do %>
+  <% @formats.each_with_index do |format, index|%>
+  <div class="col-xs-6 col-sm-4 col-md-2 col-lg-1">
+    <div class = "tags text-center">
+      <button class="btn btn-primary list-inline"><%= format %><%= check_box_tag "clicked_format[format#{index}]", format %></button>
+    </div>
+  </div>
+  <% end %>
+
+
+
+
+
+  <button class="btn btn-primary list-inline"><%= "Couleur" %><%= check_box_tag "clicked_couleur[couleur]", true %></button>
+  <button class="btn btn-primary list-inline"><%= "Noir et Blanc" %><%= check_box_tag "clicked_couleur[couleur]", false %></button>
+
+  <%= submit_tag "format", style: "display: none" %>
+  <% end %>
