@@ -1,9 +1,17 @@
 <div class="result">
+  <ol>
 
-  <% if @faireparts %>
+    <% if @faireparts %>
 
-  <% @faireparts.each do |fairepart| %>
-  <%= fairepart.nom %>
-  <% end %>
-  <% end %>
+    <% @faireparts.each do |fairepart| %>
+    <li> <%= fairepart.nom %></li>
+    <% prices = @prices.select { |m| m.fairepart_id == fairepart.id } %>
+<!--     <ol>
+      <% prices.each do |price| %>
+      <li> <%= price.nombre %> : <%= price.unite %></li>
+      <% end %>
+    </ol> -->
+    <% end %>
+    <% end %>
+  </ol>
 </div>

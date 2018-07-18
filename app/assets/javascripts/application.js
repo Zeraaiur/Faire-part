@@ -14,3 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+function selectTag(event, id){
+document.getElementById(id).classList.toggle('active1')
+document.getElementById("filter-fairepart").click();
+}

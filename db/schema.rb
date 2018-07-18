@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_182304) do
 
   create_table "prices", force: :cascade do |t|
     t.integer "nombre"
-    t.integer "unite"
+    t.float "unite"
     t.integer "fairepart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
