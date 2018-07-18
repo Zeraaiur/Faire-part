@@ -5,13 +5,16 @@
 
     <% @faireparts.each do |fairepart| %>
     <li> <%= fairepart.nom %></li>
-    <% prices = @prices.select { |m| m.fairepart_id == fairepart.id } %>
-<!--     <ol>
-      <% prices.each do |price| %>
-      <li> <%= price.nombre %> : <%= price.unite %></li>
+    <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
+    <ol>
+      <% if @myprice[0] %>
+      <%= @myprice[0].unite %>
       <% end %>
-    </ol> -->
+    </ol>
     <% end %>
     <% end %>
+
   </ol>
 </div>
+
+<%= @myprice_unit %>

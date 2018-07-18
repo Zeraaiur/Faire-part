@@ -14,9 +14,25 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+
+
 
 
 function selectTag(event, id){
 document.getElementById(id).classList.toggle('active1')
 document.getElementById("filter-fairepart").click();
 }
+
+function numberFieldValidate(e){
+document.getElementById("filter-fairepart").click();
+}
+
+
+// $('nombre').bind("keypress", function(e) {
+//   if (e.keyCode == 13) {
+//     e.preventDefault();
+//     return false;
+//   }
+// });

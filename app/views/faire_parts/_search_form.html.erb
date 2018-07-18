@@ -1,5 +1,14 @@
 
-<%= form_tag root_path, remote: true, method: :get, id: "form" do %>
+<%= form_tag root_path, remote:true, method: :get, id: "form" do %>
+
+<div class="tag-col nombre-container">
+  <div class="tag-header"> NOMBRE DE FAIRE PART</div>
+  <div class="tag-contain">
+    <%= number_field_tag 'nombre', 25, min: 25, max:500, class: "nombre-input form-control", onblur: "numberFieldValidate(event)" %>
+  </div>
+</div>
+<button class="btn" style="display: none"></button>
+
 <div class="container-fluid tag-container">
   <div class="row tag-row">
 
@@ -40,8 +49,8 @@
         OPTIONS D'IMPRESSIONS
       </div>
       <div class="tag-contain">
-      <button class="btn btn-tag list-inline" id="btn6" onclick="selectTag(event, this.id)"><%= "Recto-verso" %><%= check_box_tag "clicked_verso[value0]", true %></button>
-      <button class="btn btn-tag list-inline" id="btn7" onclick="selectTag(event, this.id)"><%= "Recto" %><%= check_box_tag "clicked_verso[value1]", false %></button>
+        <button class="btn btn-tag list-inline" id="btn6" onclick="selectTag(event, this.id)"><%= "Recto-verso" %><%= check_box_tag "clicked_verso[value0]", true %></button>
+        <button class="btn btn-tag list-inline" id="btn7" onclick="selectTag(event, this.id)"><%= "Recto" %><%= check_box_tag "clicked_verso[value1]", false %></button>
       </div>
     </div>
 

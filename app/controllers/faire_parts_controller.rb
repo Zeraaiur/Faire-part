@@ -5,10 +5,22 @@ class FairePartsController < ApplicationController
     @couleurs = Fairepart.distinct.pluck(:couleur)
     @prices = Price.all
 
+    @mynombre = params[:nombre]
     @myformat = params[:clicked_format]
     @mycouleur = params[:clicked_couleur]
     @mypliant = params[:clicked_pliant]
     @myverso = params[:clicked_verso]
+    @myprice_unit = 25
+    @myprice = 0
+
+
+
+
+    if @mynombre
+
+      price_eval
+
+    end
 
     filter_faireparts
 
@@ -88,5 +100,18 @@ class FairePartsController < ApplicationController
       false_variable = false
     end
     @faireparts = @faireparts.where("#{val2} LIKE ? OR #{val2} LIKE ?", true_variable, false_variable)
+  end
+
+
+  def price_eval
+      index = (@mynombre.to_i / 25)
+      @myprice_unit = index * 25
+      if @myprice_unit == 0
+        @myprice_unit = 25
+      end
+      if @myprice_unit > 200
+        @myprice_unit = 200
+      end
+
   end
 end
