@@ -1,20 +1,76 @@
 <div class="result">
-  <ol>
 
-    <% if @faireparts %>
 
-    <% @faireparts.each do |fairepart| %>
-    <li> <%= fairepart.nom %></li>
-    <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
-    <ol>
-      <% if @myprice[0] %>
-      <%= @myprice[0].unite %>
-      <% end %>
-    </ol>
-    <% end %>
-    <% end %>
+  <% if @faireparts %>
 
-  </ol>
+
+  <% @faireparts.each do |fairepart| %>
+
+  <div class="card-outside">
+    <div class="card">
+
+      <div class="card-image">
+
+        <div class="card-format">
+          <%= fairepart.format %>
+        </div>
+        <div class="card-pliant">
+          <% if fairepart.pliant == true %>
+          <%= "Pliant" %>
+          <% else %>
+          <%= "Non-pliant" %>
+          <% end %>
+        </div>
+        <div class="card-couleur">
+          <% if fairepart.couleur == true %>
+            Impression couleur
+            <br>
+              <% if fairepart.verso == true %>
+              recto-verso
+              <% else %>
+              recto seulement
+              <% end %>
+            <% else %>
+            Impression noir et blanc
+            <br>
+              <% if fairepart.verso == true %>
+              recto-verso
+              <% else %>
+              recto seulement
+              <% end %>
+
+          <% end %>
+        </div>
+
+
+      </div>
+
+      <div class="card-footer">
+
+        <% if @mynombre %>
+        <%= @mynombre %> unités : <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
+        <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
+        <% if @myprice[0] %>
+        <%= number_with_precision(@myprice[0].unite * @mynombre.to_i, precision: 2) %> $*
+        <% end %>
+        <% else %>
+        25 unités : <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
+        <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
+        <% if @myprice[0] %>
+        <%= number_with_precision(@myprice[0].unite * 25, precision: 2) %> $*
+        <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+  <br>
+
+
+  <% end %>
+  <% end %>
+
+
 </div>
 
-<%= @myprice_unit %>

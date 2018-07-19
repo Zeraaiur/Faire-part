@@ -13,9 +13,6 @@ class FairePartsController < ApplicationController
     @myprice_unit = 25
     @myprice = 0
 
-
-
-
     if @mynombre
 
       price_eval

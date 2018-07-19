@@ -7,6 +7,7 @@ class CreateFaireparts < ActiveRecord::Migration[5.2]
       t.boolean :pliant
       t.string :format
       t.boolean :verso
+      t.string :image
 
       t.timestamps
     end
