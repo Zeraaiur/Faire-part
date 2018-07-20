@@ -1,9 +1,13 @@
+#navbar-logo{
+max-width:400px;
+width:100%;
+
+
+}
 .main-wrapper{
   padding:0px 3%;
-  width:100vw;
   background-color:#f4f4f4;
 }
-
 .main-container{
   padding:3%;
   background-color:white;
@@ -11,14 +15,12 @@
   min-height:100vh;
   text-align:center;
 }
-
 .tag-row{
   background-color:blue;
 }
 .result{
   display:flex;
   flex-wrap: wrap;
-  justify-content:center;
   width:100%;
   margin-top:20px;
   padding:0px;

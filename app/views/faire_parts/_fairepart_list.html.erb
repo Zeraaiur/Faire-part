@@ -1,15 +1,13 @@
 <div class="result">
-
-
   <% if @faireparts %>
-
-
   <% @faireparts.each do |fairepart| %>
 
   <div class="card-outside">
     <div class="card">
 
-      <div class="card-image">
+      <div class="card-image-container">
+
+        <%= cl_image_tag(fairepart.slug, :class => "card-image") %>
 
         <div class="card-format">
           <%= fairepart.format %>
@@ -23,29 +21,29 @@
         </div>
         <div class="card-couleur">
           <% if fairepart.couleur == true %>
-            Impression couleur
-            <br>
-              <% if fairepart.verso == true %>
-              recto-verso
-              <% else %>
-              recto seulement
-              <% end %>
-            <% else %>
-            Impression noir et blanc
-            <br>
-              <% if fairepart.verso == true %>
-              recto-verso
-              <% else %>
-              recto seulement
-              <% end %>
+          Impression couleur
+          <br>
+          <% if fairepart.verso == true %>
+          recto-verso
+          <% else %>
+          recto seulement
+          <% end %>
+          <% else %>
+          Impression noir et blanc
+          <br>
+          <% if fairepart.verso == true %>
+          recto-verso
+          <% else %>
+          recto seulement
+          <% end %>
 
           <% end %>
         </div>
-
-
       </div>
 
       <div class="card-footer">
+
+        <div class="footer-container">
 
         <% if @mynombre %>
         <%= @mynombre %> unités : <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
@@ -61,8 +59,20 @@
         <% end %>
         <% end %>
 
-      </div>
+        <% if @myenveloppe %>
 
+        <% if fairepart.format == "5x7" %>
+
+        <div class="prix-enveloppe"><%= @mynombre %> enveloppes : <%= number_with_precision(0.207 * @mynombre.to_i, precision: 2) %> $*</div>
+
+        <% else %>
+
+        <div class="prix-enveloppe"><%= @mynombre %> enveloppes : <%= number_with_precision(0.1725 * @mynombre.to_i, precision: 2) %> $*</div>
+
+        <% end %>
+        <% end %>
+      </div>
+      </div>
     </div>
   </div>
   <br>

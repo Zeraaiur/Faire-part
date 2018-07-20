@@ -191,3 +191,91 @@ price = Price.new(
   )
 price.save!
 end
+
+fairepart = Fairepart.find_by(slug:"np5x7couleurrecto")
+my_hash = { 25 => 1.40, 50 => 1.01, 75 => 0.77, 100 => 0.72, 125 => 0.69, 150 => 0.67, 175 => 0.66, 200 => 0.65}
+my_hash.each do |key, value|
+price = Price.new(
+  nombre: key,
+  unite: value,
+  fairepart_id: fairepart.id
+  )
+price.save!
+end
+
+fairepart = Fairepart.find_by(slug:"np5x7nbrecto")
+my_hash = { 25 => 1.00, 50 => 0.75, 75 => 0.67, 100 => 0.55, 125 => 0.53, 150 => 0.51, 175 => 0.50, 200 => 0.48}
+my_hash.each do |key, value|
+price = Price.new(
+  nombre: key,
+  unite: value,
+  fairepart_id: fairepart.id
+  )
+price.save!
+end
+
+fairepart = Fairepart.find_by(slug:"np5x7couleurrv")
+my_hash = { 25 => 1.87, 50 => 1.24, 75 => 1.16, 100 => 0.98, 125 => 0.96, 150 => 0.93, 175 => 0.92, 200 => 0.91}
+my_hash.each do |key, value|
+price = Price.new(
+  nombre: key,
+  unite: value,
+  fairepart_id: fairepart.id
+  )
+price.save!
+end
+
+fairepart = Fairepart.find_by(slug:"np5x7nbrv")
+my_hash = { 25 => 1.33, 50 => 0.91, 75 => 0.83, 100 => 0.78, 125 => 0.76, 150 => 0.74, 175 => 0.73, 200 => 0.72}
+my_hash.each do |key, value|
+price = Price.new(
+  nombre: key,
+  unite: value,
+  fairepart_id: fairepart.id
+  )
+price.save!
+end
+
+fairepart = Fairepart.find_by(slug:"np4x5couleurrecto")
+my_hash = { 25 => 1.18, 50 => 0.79, 75 => 0.70, 100 => 0.60, 125 => 0.50, 150 => 0.48, 175 => 0.47, 200 => 0.46}
+my_hash.each do |key, value|
+price = Price.new(
+  nombre: key,
+  unite: value,
+  fairepart_id: fairepart.id
+  )
+price.save!
+end
+
+fairepart = Fairepart.find_by(slug:"np4x5nbrecto")
+my_hash = { 25 => 0.89, 50 => 0.59, 75 => 0.50, 100 => 0.46, 125 => 0.43, 150 => 0.37, 175 => 0.35, 200 => 0.34}
+my_hash.each do |key, value|
+price = Price.new(
+  nombre: key,
+  unite: value,
+  fairepart_id: fairepart.id
+  )
+price.save!
+end
+
+fairepart = Fairepart.find_by(slug:"np4x5couleurrv")
+my_hash = { 25 => 1.45, 50 => 1.03, 75 => 0.77, 100 => 0.72, 125 => 0.70, 150 => 0.68, 175 => 0.66, 200 => 0.65}
+my_hash.each do |key, value|
+price = Price.new(
+  nombre: key,
+  unite: value,
+  fairepart_id: fairepart.id
+  )
+price.save!
+end
+
+fairepart = Fairepart.find_by(slug:"np4x5nbrv")
+my_hash = { 25 => 1.05, 50 => 0.76, 75 => 0.67, 100 => 0.55, 125 => 0.53, 150 => 0.51, 175 => 0.50, 200 => 0.48}
+my_hash.each do |key, value|
+price = Price.new(
+  nombre: key,
+  unite: value,
+  fairepart_id: fairepart.id
+  )
+price.save!
+end

@@ -12,11 +12,10 @@ class FairePartsController < ApplicationController
     @myverso = params[:clicked_verso]
     @myprice_unit = 25
     @myprice = 0
+    @myenveloppe = params[:clicked_enveloppe]
 
     if @mynombre
-
       price_eval
-
     end
 
     filter_faireparts
@@ -82,7 +81,6 @@ class FairePartsController < ApplicationController
     elsif @myverso.present?
       filter(@myverso, "verso")
     end
-
   end
 
   def filter_by_format
@@ -99,16 +97,15 @@ class FairePartsController < ApplicationController
     @faireparts = @faireparts.where("#{val2} LIKE ? OR #{val2} LIKE ?", true_variable, false_variable)
   end
 
-
   def price_eval
-      index = (@mynombre.to_i / 25)
-      @myprice_unit = index * 25
-      if @myprice_unit == 0
-        @myprice_unit = 25
-      end
-      if @myprice_unit > 200
-        @myprice_unit = 200
-      end
+    index = (@mynombre.to_i / 25)
+    @myprice_unit = index * 25
+    if @myprice_unit == 0
+      @myprice_unit = 25
+    end
+    if @myprice_unit > 200
+      @myprice_unit = 200
 
+    end
   end
 end
