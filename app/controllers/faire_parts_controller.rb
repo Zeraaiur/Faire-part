@@ -1,5 +1,7 @@
 class FairePartsController < ApplicationController
   def index
+    @PRIXENVELOPPE5X7 = 0.207
+    @PRIXENVELOPPE4X5 = 0.1725
     @faireparts = Fairepart.all
     @formats = Fairepart.distinct.pluck(:format).sort
     @couleurs = Fairepart.distinct.pluck(:couleur)
@@ -12,7 +14,9 @@ class FairePartsController < ApplicationController
     @myverso = params[:clicked_verso]
     @myprice_unit = 25
     @myprice = 0
-    @myenveloppe = params[:clicked_enveloppe]
+
+    @myenveloppe = params[:clicked_enveloppe] || {"value" => "false"}
+    @myprice_enveloppe = 0
 
     if @mynombre
       price_eval
@@ -26,10 +30,19 @@ class FairePartsController < ApplicationController
     end
   end
 
+  def show
+    @faireparts = Fairepart.all
+    @fairepart = params[:fairepart]
+    @enveloppe = params[:enveloppe]
+    @nombre = params[:nombre]
+    @price = params[:price]
+    @prix_enveloppe = params[:prix_enveloppe]
+    @faireparts = @faireparts.where("id LIKE ?", @fairepart.to_i)
+  end
+
   private
 
   def filter_faireparts
-
     if @myformat.present? && @mycouleur.present?  && @mypliant.present? && @myverso.present?
       filter_by_format
       filter(@mycouleur, "couleur")
@@ -105,7 +118,6 @@ class FairePartsController < ApplicationController
     end
     if @myprice_unit > 200
       @myprice_unit = 200
-
     end
   end
 end

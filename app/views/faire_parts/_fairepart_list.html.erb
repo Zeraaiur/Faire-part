@@ -45,34 +45,41 @@
 
         <div class="footer-container">
 
-        <% if @mynombre %>
-        <%= @mynombre %> unités : <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
-        <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
-        <% if @myprice[0] %>
-        <%= number_with_precision(@myprice[0].unite * @mynombre.to_i, precision: 2) %> $*
-        <% end %>
-        <% else %>
-        25 unités : <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
-        <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
-        <% if @myprice[0] %>
-        <%= number_with_precision(@myprice[0].unite * 25, precision: 2) %> $*
-        <% end %>
-        <% end %>
+          <% if !@mynombre %>
+            <% @mynombre = 25 %>
+          <% end %>
 
-        <% if @myenveloppe %>
+          <%= @mynombre %> unités :
 
-        <% if fairepart.format == "5x7" %>
+          <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
 
-        <div class="prix-enveloppe"><%= @mynombre %> enveloppes : <%= number_with_precision(0.207 * @mynombre.to_i, precision: 2) %> $*</div>
+          <% mypricefinal = number_with_precision(@myprice[0].unite * @mynombre.to_i, precision: 2) %>
 
-        <% else %>
+        <%= mypricefinal %> $*
 
-        <div class="prix-enveloppe"><%= @mynombre %> enveloppes : <%= number_with_precision(0.1725 * @mynombre.to_i, precision: 2) %> $*</div>
+          <% if @myenveloppe["value"] == "true" %>
+            <% if fairepart.format == "5x7" %>
 
-        <% end %>
-        <% end %>
+              <div class="prix-enveloppe"><%= @mynombre %> enveloppes :
+
+
+                <% @myprice_enveloppe = number_with_precision(@PRIXENVELOPPE5X7 * @mynombre.to_i, precision: 2) %>
+
+                <%= @myprice_enveloppe %> $*</div>
+
+          <% else %>
+
+          <div class="prix-enveloppe"><%= @mynombre %> enveloppes :
+
+            <% @myprice_enveloppe = number_with_precision(@PRIXENVELOPPE4X5 * @mynombre.to_i, precision: 2) %>
+
+                <%= @myprice_enveloppe %> $*</div>
+
+          <% end %>
+          <% end %>
+        </div>
       </div>
-      </div>
+       <%= link_to "", show_path(:fairepart => fairepart, :nombre => @mynombre, :price => mypricefinal, :enveloppe => @myenveloppe["value"],:prix_enveloppe => @myprice_enveloppe), :class => "card-link" %>
     </div>
   </div>
   <br>
