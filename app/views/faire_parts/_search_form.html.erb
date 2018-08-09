@@ -1,0 +1,75 @@
+
+<%= form_tag root_path, remote:true, method: :get, id: "form" do %>
+
+<div class="tag-col nombre-container">
+  <div class="tag-header"> NOMBRE DE FAIRE PART</div>
+  <div class="tag-contain">
+    <%= number_field_tag 'nombre', 25, min: 25, max:500, class: "nombre-input form-control", onblur: "numberFieldValidate(event)" %>
+  </div>
+</div>
+
+<div class="tag-col">
+  <div class="tag-header"> BESOIN D'ENVELOPPES ?</div>
+  <div class="enveloppe-container">
+  <div class="tag-contain">
+
+    <div class="btn btn-tag list-inline" id="btn8" onclick="selectTag(event, this.id)"><%= "Oui, SVP!" %><%= check_box_tag "clicked_enveloppe[value]", true %></div>
+  </div>
+  </div>
+</div>
+
+
+<!-- <div class="btn" style="display: none"></div>
+ -->
+<div class="container-fluid tag-container">
+  <div class="row tag-row">
+
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 tag-col">
+      <div class="tag-header">
+        TYPES DE FAIRE-PART
+      </div>
+      <div class="tag-contain">
+        <div class="btn btn-tag list-inline" id="btn4" onclick="selectTag(event, this.id)"><%= "Pliant" %><%= check_box_tag "clicked_pliant[value0]", true %></div>
+        <div class="btn btn-tag list-inline" id="btn5" onclick="selectTag(event, this.id)"><%= "Non pliant" %><%= check_box_tag "clicked_pliant[value1]", false %></div>
+      </div>
+    </div>
+
+
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 tag-col">
+      <div class="tag-header">
+        FORMATS DE FAIRE-PART
+      </div>
+      <div class="tag-contain">
+        <div class="btn btn-tag list-inline" id="btn0" onclick="selectTag(event, this.id)"><%= "4.25x5.5" %><%= check_box_tag "clicked_format[format0]", "4.25x5.5" %></div>
+        <div class="btn btn-tag list-inline" id="btn1" onclick="selectTag(event, this.id)"><%= "5x7" %><%= check_box_tag "clicked_format[format1]", "5x7" %></div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 tag-col">
+      <div class="tag-header">
+        OPTIONS DE COULEURS
+      </div>
+      <div class="tag-contain">
+        <div class="btn btn-tag list-inline" id="btn2" onclick="selectTag(event, this.id)"><%= "Couleur" %><%= check_box_tag "clicked_couleur[value0]", true %></div>
+        <div class="btn btn-tag list-inline" id="btn3" onclick="selectTag(event, this.id)"><%= "Noir et Blanc" %><%= check_box_tag "clicked_couleur[value1]", false %></div>
+      </div>
+    </div>
+
+
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 tag-col">
+      <div class="tag-header">
+        OPTIONS D'IMPRESSIONS
+      </div>
+      <div class="tag-contain">
+        <div class="btn btn-tag list-inline" id="btn6" onclick="selectTag(event, this.id)"><%= "Recto-verso" %><%= check_box_tag "clicked_verso[value0]", true %></div>
+        <div class="btn btn-tag list-inline" id="btn7" onclick="selectTag(event, this.id)"><%= "Recto" %><%= check_box_tag "clicked_verso[value1]", false %></div>
+      </div>
+    </div>
+
+    <%= submit_tag "filter", id: "filter-fairepart", style: "display: none" %>
+    <% end %>
+
+  </div>
+
+</div>
+

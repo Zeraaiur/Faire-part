@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: 1
+  unite: 1
+  fairepart: one
+
+two:
+  nombre: 1
+  unite: 1
+  fairepart: two

@@ -1,0 +1,86 @@
+<div class="result">
+  <% if @faireparts %>
+  <% @faireparts.each do |fairepart| %>
+
+  <div class="card-outside">
+    <div class="card">
+
+      <div class="card-image-container">
+
+        <%= cl_image_tag(fairepart.slug, :class => "card-image") %>
+
+        <div class="card-format">
+          <%= fairepart.format %>
+        </div>
+        <div class="card-pliant">
+          <% if fairepart.pliant == true %>
+          <%= "Pliant" %>
+          <% else %>
+          <%= "Non-pliant" %>
+          <% end %>
+        </div>
+        <div class="card-couleur">
+          <% if fairepart.couleur == true %>
+          Impression couleur
+          <br>
+          <% if fairepart.verso == true %>
+          recto-verso
+          <% else %>
+          recto seulement
+          <% end %>
+          <% else %>
+          Impression noir et blanc
+          <br>
+          <% if fairepart.verso == true %>
+          recto-verso
+          <% else %>
+          recto seulement
+          <% end %>
+
+          <% end %>
+        </div>
+      </div>
+
+      <div class="card-footer">
+
+        <div class="footer-container">
+
+        <% if @mynombre %>
+        <%= @mynombre %> unités : <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
+        <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
+        <% if @myprice[0] %>
+        <%= number_with_precision(@myprice[0].unite * @mynombre.to_i, precision: 2) %> $*
+        <% end %>
+        <% else %>
+        25 unités : <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
+        <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
+        <% if @myprice[0] %>
+        <%= number_with_precision(@myprice[0].unite * 25, precision: 2) %> $*
+        <% end %>
+        <% end %>
+
+        <% if @myenveloppe %>
+
+        <% if fairepart.format == "5x7" %>
+
+        <div class="prix-enveloppe"><%= @mynombre %> enveloppes : <%= number_with_precision(0.207 * @mynombre.to_i, precision: 2) %> $*</div>
+
+        <% else %>
+
+        <div class="prix-enveloppe"><%= @mynombre %> enveloppes : <%= number_with_precision(0.1725 * @mynombre.to_i, precision: 2) %> $*</div>
+
+        <% end %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+  <% end %>
+  <% end %>
+
+
+</div>
+
