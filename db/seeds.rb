@@ -13,45 +13,41 @@ Fairepart.destroy_all
 
 fairepart = Fairepart.new(
   slug: "pliant5x7couleur",
-  nom: "Carte pliante 5 x 7 couleur",
+  nom: "cartes pliantes, 5 x 7, couleur",
   pliant:true,
   couleur:true,
   verso:true,
   format:"5x7",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "pliant5x7nb",
-  nom: "Carte pliante 5 x 7 noir-blanc",
+  nom: "cartes pliantes, 5 x 7, noir-blanc",
   pliant:true,
   couleur:false,
   verso:true,
   format:"5x7",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "pliant4x5couleur",
-  nom:  "Carte pliante 4.25 x 5.5 couleur",
+  nom:  "cartes pliantes, 4.25 x 5.5, couleur",
   pliant:true,
   couleur:true,
   verso:true,
   format:"4.25x5.5",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "pliant4x5nb",
-  nom: "Carte pliante 4.25 x 5.5 noir-blanc",
+  nom: "cartes pliantes, 4.25 x 5.5, noir-blanc",
   pliant:true,
   couleur:false,
   verso:true,
   format:"4.25x5.5",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
@@ -60,89 +56,81 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np5x7couleurrecto",
-  nom: "Carte non-pliante 5 x 7 couleur recto",
+  nom: "cartes non-pliantes, 5 x 7, couleur, recto",
   pliant:false,
   couleur:true,
   verso:false,
   format:"5x7",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np5x7nbrecto",
-  nom: "Carte non-pliante 5 x 7 noir-blanc recto",
+  nom: "cartes non-pliantes, 5 x 7, noir-blanc, recto",
   pliant:false,
   couleur:false,
   verso:false,
   format:"5x7",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np5x7couleurrv",
-  nom: "Carte non-pliante 5 x 7 couleur recto-recto",
+  nom: "cartes non-pliantes, 5 x 7, couleur, recto-verso",
   pliant:false,
   couleur:true,
   verso:true,
   format:"5x7",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np5x7nbrv",
-  nom: "Carte non-pliante 5 x 7 noir-blanc recto-recto",
+  nom: "cartes non-pliantes, 5 x 7, noir-blanc, recto-verso",
   pliant:false,
   couleur:false,
   verso:true,
   format:"5x7",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np4x5couleurrecto",
-  nom: "Carte non-pliante 4.25 x 5.5 couleur recto",
+  nom: "cartes non-pliantes, 4.25 x 5.5, couleur, recto",
   pliant:false,
   couleur:true,
   verso:false,
   format:"4.25x5.5",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np4x5nbrecto",
-  nom: "Carte non-pliante 4.25 x 5.5 noir-blanc recto",
+  nom: "cartes non-pliantes, 4.25 x 5.5, noir-blanc, recto",
   pliant:false,
   couleur:false,
   verso:false,
   format:"4.25x5.5",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np4x5couleurrv",
-  nom: "Carte non-pliante 4.25 x 5.5 couleur recto-recto",
+  nom: "cartes non-pliantes, 4.25 x 5.5, couleur, recto-verso",
   pliant:false,
   couleur:true,
   verso:true,
   format:"4.25x5.5",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np4x5nbrv",
-  nom: "Carte non-pliante 4.25 x 5.5 noir-blanc recto-recto",
+  nom: "cartes non-pliantes, 4.25 x 5.5, noir-blanc, recto-verso",
   pliant:false,
   couleur:false,
   verso:true,
   format:"4.25x5.5",
-  image:"https://source.unsplash.com/800x800/"
   )
 fairepart.save!
 

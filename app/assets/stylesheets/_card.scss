@@ -8,6 +8,7 @@
 }
 
 .card{
+  position:relative;
   display:inline-block;
   border: 1px solid #ccc;
   width:300px;
@@ -92,4 +93,13 @@
     display:flex;
     align-items:center;
     justify-content:center;
+  }
+  .card-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+    opacity: 0;
   }

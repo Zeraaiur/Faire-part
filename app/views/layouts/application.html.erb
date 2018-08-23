@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>FairePart</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>FairePart</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+  <div class="main-wrapper">
+    <div class="main-container">
+
+      <%= link_to cl_image_tag("Pro_logo_CMYK-01", :id => "navbar-logo"), root_path %>
+
+      <h1>CALCULATEUR DE PRIX POUR LES FAIRE-PART</h1>
+      <hr>
+
+      <%= yield %>
+
+      <%= render "footer" %>
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+</body>
 </html>

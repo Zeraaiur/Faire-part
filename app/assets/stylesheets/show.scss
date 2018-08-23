@@ -1,0 +1,61 @@
+.show-name{
+  font-size:2em;
+}
+.card-image-show{
+  max-width:30%;
+  min-width:300px;
+}
+.show-info{
+  font-size:1.5em;
+}
+.price-grid{
+  max-width:500px;
+  display:inline-block;
+}
+.show-price .container{
+  text-align:center;
+}
+.col-total{
+  font-size:1.3em;
+  border-top: 1px solid black;
+  margin-top:10px;
+}
+.btn-print{
+  margin:20px;
+  background-color:$lgrey;
+  transition:background-color 0.5s;
+  font-size:20px;
+  i{
+    display:none;
+  }
+  &:hover{
+    background-color:$lblue;
+    i{
+      display:inline-block;
+    }
+  }
+}
+
+
+@media print{
+  #navbar-logo{
+    max-height:100px;
+    width:auto;
+  }
+  a[href]:after {
+    content: none !important;
+  }
+  .main-container h1{
+    font-size:1.5em;
+  }
+  .show-name{
+    font-size:1.5em;
+  }
+  .card-image-show{
+    max-width:100px!important;
+    margin-top:20px;
+  }
+  .btn-print{
+    display:none;
+  }
+}
