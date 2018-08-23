@@ -38,6 +38,13 @@ class FairePartsController < ApplicationController
     @price = params[:price]
     @prix_enveloppe = params[:prix_enveloppe]
     @faireparts = @faireparts.where("id LIKE ?", @fairepart.to_i)
+    @TPS = 0.05
+    @TVQ = 0.09975
+    @subtotal = @price.to_f + @prix_enveloppe.to_f
+    @total_tps = @subtotal * @TPS
+    @total_tvq = @subtotal * @TVQ
+    @total = @subtotal + @total_tps + @total_tvq
+
   end
 
   private
@@ -97,7 +104,7 @@ class FairePartsController < ApplicationController
   end
 
   def filter_by_format
-    @faireparts = @faireparts.where("format LIKE ? OR format LIKE ?", @myformat[:format0], @myformat[:format1])
+    @faireparts = @faireparts.where("format LIKE ? OR format LIKE ? OR format LIKE ?", @myformat[:format0], @myformat[:format1], @myformat[:format2])
   end
 
   def filter(val1, val2)

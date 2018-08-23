@@ -11,16 +11,13 @@
 <div class="tag-col nombre-container">
   <div class="tag-header"> BESOIN D'ENVELOPPES ?</div>
   <div class="enveloppe-container">
-  <div class="tag-contain">
+    <div class="tag-contain">
 
-    <div class="btn btn-tag list-inline" id="btn8" onclick="selectTag(event, this.id)"><%= "Oui, SVP!" %><%= check_box_tag "clicked_enveloppe[value]", true %></div>
-  </div>
+      <div class="btn btn-tag list-inline" id="btn8" onclick="selectTag(event, this.id)"><%= "Oui, SVP!" %><%= check_box_tag "clicked_enveloppe[value]", true %></div>
+    </div>
   </div>
 </div>
 
-
-<!-- <div class="btn" style="display: none"></div>
- -->
 <div class="container-fluid tag-container">
   <div class="row tag-row">
 
@@ -34,15 +31,17 @@
       </div>
     </div>
 
-
     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 tag-col">
       <div class="tag-header">
         FORMATS DE FAIRE-PART
       </div>
+
       <div class="tag-contain">
-        <div class="btn btn-tag list-inline" id="btn0" onclick="selectTag(event, this.id)"><%= "4.25x5.5" %><%= check_box_tag "clicked_format[format0]", "4.25x5.5" %></div>
-        <div class="btn btn-tag list-inline" id="btn1" onclick="selectTag(event, this.id)"><%= "5x7" %><%= check_box_tag "clicked_format[format1]", "5x7" %></div>
+        <% @formats.each_with_index do |value, index| %>
+        <div class="btn btn-tag list-inline" id="btn<%=value%>" onclick="selectTag(event, this.id)"><%= value %><%= check_box_tag "clicked_format[format#{index.to_s}]", value %> </div>
+        <% end %>
       </div>
+
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 tag-col">

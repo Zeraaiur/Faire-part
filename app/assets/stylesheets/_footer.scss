@@ -1,0 +1,23 @@
+.footer {
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content:center;
+  }
+  .footer-logo-box{
+    width:400px
+  }
+  .footer-info-box{
+    text-align:center;
+    width:400px;
+
+    h3{
+      color:$gblue;
+    }
+  }
+
+  #footer-logo{
+    max-width:300px;
+  }

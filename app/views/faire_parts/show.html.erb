@@ -2,14 +2,64 @@
   <div class="tag-header"> RÉSUMÉ DE LA SOUMISSION</div>
   <div class="tag-contain">
 
+    <div class="show-name">
+      <%= @nombre %> <%= @faireparts[0].nom %>,
+      <% if @enveloppe != "false" %>
+      avec enveloppes
+      <% else %>
+      sans enveloppes
+      <% end %>
 
-<%= @faireparts %>
-<%= @fairepart %>
-<%= @enveloppe %>
-<%= @nombre %>
-<%= @price %>
-
-
-
+    </div>
+    <div>
+      <%= cl_image_tag(@faireparts[0].slug, :class => "card-image-show") %>
+    </div>
   </div>
+
+  <div class="tag-header"> PRIX DÉTAILLÉ</div>
+  <div class="tag-contain">
+
+    <div class="show-price">
+      <div class="container">
+        <div class="price-grid row">
+          <div class="col-xs-6">
+            <%= @nombre %> faire-part
+          </div>
+          <div class="col-xs-6">
+            <%= @price %>
+          </div>
+          <% if @enveloppe != "false" %>
+          <div class="col-xs-6">
+            <%= @nombre %> enveloppes
+          </div>
+          <div class="col-xs-6">
+            <%= @prix_enveloppe %>
+          </div>
+          <% end %>
+
+          <div class="col-xs-6">
+            TPS
+          </div>
+          <div class="col-xs-6">
+            <%= number_with_precision(@total_tps, precision: 2) %>
+          </div>
+          <div class="col-xs-6">
+            TVQ
+          </div>
+          <div class="col-xs-6">
+            <%= number_with_precision(@total_tvq, precision: 2) %>
+          </div>
+          <div class="col-xs-6 col-total">
+            Total
+          </div>
+          <div class="col-xs-6 col-total">
+            <%= number_with_precision(@total, precision: 2) %>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div type="button" class="btn btn-print" onClick="window.print()"/> Imprimer cette page <i class="fas fa-print"></i></div>
+  </div>
+
+
 </div>
