@@ -53,7 +53,11 @@
 
           <% @myprice = @prices.select { |m| m.fairepart_id == fairepart.id && m.nombre == @myprice_unit} %>
 
+          <% if @myprice[0] %>
+
           <% mypricefinal = number_with_precision(@myprice[0].unite * @mynombre.to_i, precision: 2) %>
+
+          <% end %>
 
         <%= mypricefinal %> $*
 

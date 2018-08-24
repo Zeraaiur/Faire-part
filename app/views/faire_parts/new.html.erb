@@ -1,0 +1,34 @@
+<div class="tag-col nombre-container">
+  <div class="tag-header"> NOUVEAU FAIRE-PART</div>
+  <div class="tag-contain">
+
+<%= simple_form_for @fairepart, url: faire_part_path, method: :post  do |f| %>
+<%= f.input :format, placeholder: '?x?' %>
+
+<hr>
+
+<%= f.input :couleur,as: :radio_buttons, :collection => [["Impresion en couleur", true],["Impression en noir et blanc", false]], label_html: { class: 'new-form-label' }  %>
+
+<hr>
+
+<%= f.input :pliant,as: :radio_buttons, :collection => [["Carte pliante", true],["Carte non-pliante", false]], label_html: { class: 'new-form-label' }   %>
+
+<hr>
+
+<%= f.input :verso,as: :radio_buttons, :collection => [["Impresion recto seulement", true],["Impression recto-verso", false]], label_html: { class: 'new-form-label' }   %>
+
+<hr>
+
+<%= f.input :image %>
+
+<hr>
+
+<%= f.button :submit, :class => "btn-print", :value => "Créer le faire-part" %>
+<% end %>
+
+
+  </div>
+</div>
+
+
+
