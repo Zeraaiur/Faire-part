@@ -1,0 +1,61 @@
+<h1>Prices#new</h1>
+<p>Find me in app/views/prices/new.html.erb</p>
+
+<div class="tag-col nombre-container">
+  <div class="tag-header">NOUVEAU FAIRE-PART</div>
+  <div class="tag-contain">
+
+    <div class="show-name">
+
+      <div>
+        <%= @fairepart.format %>
+      </div>
+      <div>
+        <% if @fairepart.pliant == true %>
+        <%= "Pliant" %>
+        <% else %>
+        <%= "Non-pliant" %>
+        <% end %>
+      </div>
+      <div>
+        <% if @fairepart.couleur == true %>
+        Impression couleur
+        <% else %>
+        Impression noir et blanc
+        <% end %>
+        <div>
+          <% if @fairepart.verso == true %>
+          Recto-verso
+          <% else %>
+          Recto seulement
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tag-header">PRIX</div>
+  <div class="tag-contain">
+
+    <%= simple_form_for @price, url: create_price_path, remote: :true, method: :post  do |f| %>
+    <%= f.hidden_field :nombre, :value => @nombre %>
+    <%= f.hidden_field :fairepart_id, :value => @fairepart.id %>
+    <%= f.label :unite, "Prix unitaire pour #{@nombre} unités", :class => "pricelabel" %>
+    <%= f.input :unite,
+    html5: true,
+    input_html: {
+      'data-ng-model' => 'employment.workload',
+      'pattern' => '[0-9]+([\.,][0-9]+)?',
+      :step => 0.01,
+      :type => 'number' }, label: false, placeholder: "0.00", as: :numeric %>
+
+      <%= f.button :submit, :class => "btn-print", :value => "Ajouter le prix"
+      %>
+      <% end %>
+
+
+
+    </div>
+
+  </div>

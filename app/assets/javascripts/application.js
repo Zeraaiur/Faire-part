@@ -21,18 +21,40 @@
 
 
 function selectTag(event, id){
-document.getElementById(id).classList.toggle('active1')
-document.getElementById("filter-fairepart").click();
+  document.getElementById(id).classList.toggle('active1')
+  document.getElementById("filter-fairepart").click();
 }
 
 function numberFieldValidate(e){
-document.getElementById("filter-fairepart").click();
+  document.getElementById("filter-fairepart").click();
+}
+//new
+
+
+
+function verifyNew(){
+
+
+
+  var divs = document.querySelectorAll('.error-message'), i;
+
+  for (i = 0; i < divs.length; ++i) {
+    divs[i].classList.add("display-none")
+  }
+
+
+
+  if (document.getElementById("fairepart_couleur_true").checked == false &&
+    document.getElementById("fairepart_couleur_false").checked == false ){
+    document.querySelector(".couleur-error").classList.remove("display-none")
+}
+  if (document.getElementById("fairepart_pliant_true").checked == false &&
+    document.getElementById("fairepart_pliant_false").checked == false ){
+    document.querySelector(".pliant-error").classList.remove("display-none")
+}
+  if (document.getElementById("fairepart_verso_true").checked == false &&
+    document.getElementById("fairepart_verso_false").checked == false ){
+    document.querySelector(".verso-error").classList.remove("display-none")
 }
 
-
-// $('nombre').bind("keypress", function(e) {
-//   if (e.keyCode == 13) {
-//     e.preventDefault();
-//     return false;
-//   }
-// });
+}
