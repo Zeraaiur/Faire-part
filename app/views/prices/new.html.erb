@@ -38,6 +38,51 @@
   <div class="tag-header">PRIX</div>
   <div class="tag-contain">
 
+
+
+
+
+    <%= form_tag create_price_path do %>
+
+    <% nombre = 0 %>
+
+    <% @price.each do |price| %>
+
+    <% nombre += 25 %>
+
+    <%= fields_for 'prices[]', price do |p| %>
+
+    <div class="field">
+      <%= p.label nombre%><br>
+      <%= p.hidden_field :nombre, :value => nombre %>
+    </div>
+    <div class="field">
+      <%= p.label :unite %><br>
+      <%= p.text_field :unite %>
+
+    </div>
+    <div class="field">
+      <%= p.hidden_field :fairepart_id, :value => @fairepart.id %>
+
+    </div>
+
+    <% end %>
+    <% end %>
+    <div class="actions">
+      <%= submit_tag %>
+    </div>
+    <% end %>
+
+
+
+
+
+
+
+
+
+
+
     <%= simple_form_for @price, url: create_price_path, remote: :true, method: :post  do |f| %>
     <%= f.hidden_field :nombre, :value => @nombre %>
     <%= f.hidden_field :fairepart_id, :value => @fairepart.id %>

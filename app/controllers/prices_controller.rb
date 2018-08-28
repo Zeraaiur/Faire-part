@@ -2,25 +2,22 @@ class PricesController < ApplicationController
   def new
     @fairepart_id = params[:id]
     @fairepart = Fairepart.find_by(id: @fairepart_id)
-    @nombre = 50
-
-    @price = Price.new
-
+    @price = []
+    5.times do
+      @price << Price.new
+    end
   end
 
   def create
-
-    @price = Price.new
-    @price.fairepart_id = params[:id].to_i
-
-    @price = Price.new(price_params)
-    @price.save
+    params["prices"].each do |price|
+      Price.create(price_params(price))
+    end
   end
 
   private
 
-  def price_params
-    params.require(:price).permit(:nombre, :unite, :fairepart_id)
+  def price_params(my_params)
+    my_params.permit(:nombre, :unite, :fairepart_id)
   end
 
 end
