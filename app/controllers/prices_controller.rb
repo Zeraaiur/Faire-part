@@ -3,7 +3,7 @@ class PricesController < ApplicationController
     @fairepart_id = params[:id]
     @fairepart = Fairepart.find_by(id: @fairepart_id)
     @price = []
-    5.times do
+    8.times do
       @price << Price.new
     end
   end

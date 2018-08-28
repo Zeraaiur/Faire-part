@@ -1,3 +1,26 @@
 // Place all the styles related to the Prices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.price-form-container{
+  padding:20px;
+}
+
+
+.price-input-container{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-around;
+  margin-bottom:30px;
+}
+.price-input{
+  .field input{
+    max-width:80px;
+    min-width:50px;
+    margin-bottom:20px;
+  }
+}
+.btn-disable{
+  opacity:0.3!important;
+}
+
