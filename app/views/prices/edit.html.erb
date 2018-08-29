@@ -35,7 +35,7 @@
   <div class="tag-header">PRIX</div>
   <div class="tag-contain price-form-container">
 
-    <%= form_tag create_price_path do %>
+    <%= form_tag update_price_path, method: :patch do %>
     <h3>Entrer le prix <u>unitaire</u> pour chaque quantité de faire-part</h3>
     <h4>Format accepté : 0.00</h4>
     <br>
@@ -43,7 +43,7 @@
 
     <% nombre = 0 %>
 
-    <% @price.each do |price| %>
+    <% @prices.each do |price| %>
 
     <% nombre += 25 %>
 
@@ -54,7 +54,7 @@
         <%= p.hidden_field :nombre, :value => nombre %>
       </div>
       <div class="field">
-        <%= p.text_field :unite, :maxlength => 4, :onkeypress => "return isNumber(event)", :onchange => "return isAllFieldFilled()", :onblur => "return isPriceGood(this)", :class => "price_text_field", :placeholder => "0.00" %> <i>$</i>
+        <%= p.text_field :unite, :maxlength => 4, :onkeypress => "return isNumber(event)", :onchange => "return isAllFieldFilled()", :onblur => "return isPriceGood(this)", :class => "price_text_field", :value => number_with_precision(price.unite, precision: 2) %> <i>$</i>
       </div>
       <div class="field">
         <%= p.hidden_field :fairepart_id, :value => @fairepart.id %>
@@ -64,7 +64,7 @@
     <% end %>
     </div>
     <div class="actions">
-      <%= submit_tag "Enregistrer les prix", disabled: true, :class => "btn btn-print btn-disable", :id => "btn-price"%>
+      <%= submit_tag "Enregistrer les prix", :class => "btn btn-print", :id => "btn-price"%>
     </div>
     <% end %>
   </div>
