@@ -44,10 +44,64 @@ class FairePartsController < ApplicationController
     @total_tps = @subtotal * @TPS
     @total_tvq = @subtotal * @TVQ
     @total = @subtotal + @total_tps + @total_tvq
+  end
+
+  def new
+    @fairepart = Fairepart.new
+  end
+
+  def create
+    @fairepart = Fairepart.new(fairepart_params)
+
+    if @fairepart.couleur == true
+      mycouleur = "couleur"
+      mycouleurslug = "couleur"
+    else
+      mycouleur = "noir-blanc"
+      mycouleurslug = "nb"
+    end
+
+    if @fairepart.pliant == true
+      mypliant = "pliantes"
+      mypliantslug = "pliant"
+    else
+      mypliant = "non-pliantes"
+      mypliantslug = "np"
+    end
+
+    if @fairepart.verso == true
+      myverso = ", recto-verso"
+      myversoslug = "rv"
+    else
+      myverso = ""
+      myversoslug = "recto"
+    end
+
+    @fairepart.nom = "cartes #{mypliant}, #{@fairepart.format}, #{mycouleur}#{myverso}"
+    @fairepart.slug = "#{mypliant}#{@fairepart.format}#{mycouleur}#{myverso}"
+
+    if @fairepart.save
+      @new_fairepart = Fairepart.last.id
+      redirect_to "/faire_part/#{@new_fairepart}/prix"
+
+    else
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    end
+
+
+
 
   end
 
   private
+
+  def fairepart_params
+    params.require(:fairepart).permit(:nom, :slug, :couleur, :format, :pliant,:verso, :image)
+  end
 
   def filter_faireparts
     if @myformat.present? && @mycouleur.present?  && @mypliant.present? && @myverso.present?
@@ -104,7 +158,10 @@ class FairePartsController < ApplicationController
   end
 
   def filter_by_format
-    @faireparts = @faireparts.where("format LIKE ? OR format LIKE ? OR format LIKE ?", @myformat[:format0], @myformat[:format1], @myformat[:format2])
+    @faireparts = @faireparts.where("format LIKE ?
+      OR format LIKE ? OR format LIKE ? OR format LIKE ?
+      OR format LIKE ? OR format LIKE ?", @myformat[:format0], @myformat[:format1],
+      @myformat[:format2], @myformat[:format3], @myformat[:format4], @myformat[:format5])
   end
 
   def filter(val1, val2)

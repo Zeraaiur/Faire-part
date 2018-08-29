@@ -1,0 +1,35 @@
+
+#new_fairepart{
+  font-size:1.5em;
+  input[type=radio] {
+    border: 0px;
+    width:40px;
+    margin-left:-40px;
+    height: 1em;
+  }
+  .radio_buttons{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    .radio{
+      margin:20px;
+    }
+
+  }
+  .new-form-label{
+    display:none;
+  }
+  #fairepart_format{
+    margin:20px;
+    width:200px;
+    padding:5px;
+  }
+}
+.display-none{
+  display:none;
+}
+.error-message{
+  color:red;
+  font-weight:bold;
+}

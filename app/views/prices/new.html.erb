@@ -1,0 +1,71 @@
+<div class="tag-col nombre-container">
+  <div class="tag-header">NOUVEAU FAIRE-PART</div>
+  <div class="tag-contain">
+
+    <div class="show-name">
+
+      <div>
+        <%= @fairepart.format %>
+      </div>
+      <div>
+        <% if @fairepart.pliant == true %>
+        <%= "Pliant" %>
+        <% else %>
+        <%= "Non-pliant" %>
+        <% end %>
+      </div>
+      <div>
+        <% if @fairepart.couleur == true %>
+        Impression couleur
+        <% else %>
+        Impression noir et blanc
+        <% end %>
+        <div>
+          <% if @fairepart.verso == true %>
+          Recto-verso
+          <% else %>
+          Recto seulement
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="tag-col nombre-container">
+  <div class="tag-header">PRIX</div>
+  <div class="tag-contain price-form-container">
+
+    <%= form_tag create_price_path do %>
+    <h3>Entrer le prix <u>unitaire</u> pour chaque quantité de faire-part</h3>
+    <h4>Format accepté : 0.00</h4>
+    <br>
+<div class="price-input-container">
+
+    <% nombre = 0 %>
+
+    <% @price.each do |price| %>
+
+    <% nombre += 25 %>
+
+    <%= fields_for 'prices[]', price do |p| %>
+    <div class="price-input">
+      <div class="field">
+        <%= p.label nombre%><br>
+        <%= p.hidden_field :nombre, :value => nombre %>
+      </div>
+      <div class="field">
+        <%= p.text_field :unite, :maxlength => 4, :onkeypress => "return isNumber(event)", :onchange => "return isAllFieldFilled()", :onblur => "return isPriceGood(this)", :class => "price_text_field", :placeholder => "0.00" %> <i>$</i>
+      </div>
+      <div class="field">
+        <%= p.hidden_field :fairepart_id, :value => @fairepart.id %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Enregistrer les prix", disabled: true, :class => "btn btn-print btn-disable", :id => "btn-price"%>
+    </div>
+    <% end %>
+  </div>
+</div>
