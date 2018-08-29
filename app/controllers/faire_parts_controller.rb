@@ -1,4 +1,6 @@
 class FairePartsController < ApplicationController
+    skip_before_action :authenticate_user!, :only => [:index, :show]
+
   def index
     @PRIXENVELOPPE5X7 = 0.207
     @PRIXENVELOPPE4X5 = 0.1725
@@ -91,10 +93,6 @@ class FairePartsController < ApplicationController
         format.js
       end
     end
-
-
-
-
   end
 
   private

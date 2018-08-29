@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'faire_part/:id/prix', to: "prices#new", as: "new-price"
   post 'faire_part/:id/prix', to: 'prices#create', as: "create-price"
 
