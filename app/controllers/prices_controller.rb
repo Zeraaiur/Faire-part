@@ -22,7 +22,11 @@ class PricesController < ApplicationController
 
   def update
     params["prices"].each do |newprice|
-      Price.update(price_params(newprice))
+@test = newprice
+
+    @price = Price.find(newprice.first)
+    @price.update(price_params(newprice[1]))
+
     end
   end
 
