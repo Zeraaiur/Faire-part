@@ -32,6 +32,13 @@ class FairePartsController < ApplicationController
     end
   end
 
+  def destroy
+  @fairepart = Fairepart.find(params[:id])
+  @fairepart.destroy
+
+  redirect_to root_path
+end
+
   def show
     @faireparts = Fairepart.all
     @fairepart = params[:fairepart]

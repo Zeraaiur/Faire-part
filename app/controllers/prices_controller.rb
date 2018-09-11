@@ -25,6 +25,7 @@ class PricesController < ApplicationController
       @price = Price.find(newprice.first)
       @price.update(price_params(newprice[1]))
     end
+    redirect_to root_path
   end
 
   private

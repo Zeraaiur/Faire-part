@@ -46,7 +46,7 @@
         <div class="footer-container">
 
           <% if !@mynombre %>
-            <% @mynombre = 25 %>
+          <% @mynombre = 25 %>
           <% end %>
 
           <%= @mynombre %> unités :
@@ -59,39 +59,49 @@
 
           <% end %>
 
-        <%= mypricefinal %> $*
+          <%= mypricefinal %> $*
 
           <% if @myenveloppe["value"] == "true" %>
-            <% if fairepart.format == "5x7" %>
-
-              <div class="prix-enveloppe"><%= @mynombre %> enveloppes :
-
-
-                <% @myprice_enveloppe = number_with_precision(@PRIXENVELOPPE5X7 * @mynombre.to_i, precision: 2) %>
-
-                <%= @myprice_enveloppe %> $*</div>
-
-          <% else %>
+          <% if fairepart.format == "5x7" %>
 
           <div class="prix-enveloppe"><%= @mynombre %> enveloppes :
 
-            <% @myprice_enveloppe = number_with_precision(@PRIXENVELOPPE4X5 * @mynombre.to_i, precision: 2) %>
 
-                <%= @myprice_enveloppe %> $*</div>
+            <% @myprice_enveloppe = number_with_precision(@PRIXENVELOPPE5X7 * @mynombre.to_i, precision: 2) %>
 
-          <% end %>
-          <% end %>
+            <%= @myprice_enveloppe %> $*</div>
+
+            <% else %>
+
+            <div class="prix-enveloppe"><%= @mynombre %> enveloppes :
+
+              <% @myprice_enveloppe = number_with_precision(@PRIXENVELOPPE4X5 * @mynombre.to_i, precision: 2) %>
+
+              <%= @myprice_enveloppe %> $*</div>
+
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+          <%= link_to "", show_path(:fairepart => fairepart, :nombre => @mynombre, :price => mypricefinal, :enveloppe => @myenveloppe["value"],:prix_enveloppe => @myprice_enveloppe), :class => "card-link" %>
         </div>
+
+        <% if user_signed_in? %>
+
+        <div class="admin-footer">
+
+          <%= link_to "", delete_path(fairepart), :class => "fa fa-trash", :method => :delete, data: { confirm: 'Êtes vous certain de vouloir effacer ce produit?' }%>
+          &nbsp;&nbsp;
+          <%= link_to "", edit_price_path(fairepart), :class => "fa fa-edit" %>
+        </div>
+        <% end %>
       </div>
-       <%= link_to "", show_path(:fairepart => fairepart, :nombre => @mynombre, :price => mypricefinal, :enveloppe => @myenveloppe["value"],:prix_enveloppe => @myprice_enveloppe), :class => "card-link" %>
+      <br>
+
+
+      <% end %>
+      <% end %>
+
+
     </div>
-  </div>
-  <br>
-
-
-  <% end %>
-  <% end %>
-
-
-</div>
 
