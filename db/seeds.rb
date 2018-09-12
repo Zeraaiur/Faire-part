@@ -8,6 +8,7 @@
 Price.destroy_all
 Fairepart.destroy_all
 Enveloppe.destroy_all
+User.destroy_all
 
 
 # ====///Pliant///========

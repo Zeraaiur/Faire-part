@@ -12,6 +12,16 @@ class PricesController < ApplicationController
     params["prices"].each do |price|
       Price.create(price_params(price))
     end
+    @new_fairepart = Fairepart.last.id
+    @format = Fairepart.last.format
+    @enveloppe = Enveloppe.find_by(format: @format)
+
+    if !@enveloppe
+      redirect_to "/faire_part/#{@new_fairepart}/enveloppe"
+    else
+      redirect_to root_path
+    end
+
   end
 
   def edit
