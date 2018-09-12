@@ -1,5 +1,5 @@
 class Fairepart < ApplicationRecord
-  has_many :prices
+  has_many :prices, dependent: :delete_all
   validates :format, presence: true
   validates :couleur, inclusion: { in: [ true, false ] }
   validates :pliant, inclusion: { in: [ true, false ] }

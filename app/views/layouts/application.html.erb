@@ -10,25 +10,16 @@
 </head>
 
 <body>
-
   <div class="main-wrapper">
+    <%= render "faire_parts/admin_navbar" %>
     <div class="main-container">
-
       <%= link_to cl_image_tag("Pro_logo_CMYK-01", :id => "navbar-logo"), root_path %>
-
       <h1>CALCULATEUR DE PRIX POUR LES FAIRE-PART</h1>
       <hr>
-
       <%= yield %>
-
       <%= render "faire_parts/footer" %>
-
     </div>
   </div>
-</div>
-</div>
-
-
 
 </body>
 </html>

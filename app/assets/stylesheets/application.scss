@@ -13,6 +13,7 @@
 @import "footer";
 @import "new";
 @import "prices";
+@import "user_login";
 
 .btn.disabled,
 .btn[disabled],
@@ -31,4 +32,58 @@ a.btn[disabled] {
 
 *.disabled {
   cursor: not-allowed;
+}
+.admin-navbar{
+  background-color:$lgrey;
+  width:100%;
+  margin-bottom:0px;
+  padding:5px;
+  text-align:right;
+}
+
+.admin-navbar-container{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  font-size:1.3em;
+  ul{
+    margin:0px!important;
+  }
+}
+.admin-mode{
+  text-align:center;
+  background-color:red;
+  color:white;
+  font-size:1.3em;
+}
+.alert{
+  margin:0px!important;
+  padding:0px!important;
+  height:auto!important;
+  border:none!important;
+  text-align:center;
+  font-weight:bold;
+  background-color:$dblue;
+  color:white;
+}
+.notice{
+  margin:0px!important;
+  padding:0px!important;
+  height:auto!important;
+  border:none!important;
+  text-align:center;
+  font-weight:bold;
+  background-color:$dblue;
+  color:white;
+}
+.main-wrapper{
+  padding:0px 3%;
+  background-color:#f4f4f4;
+}
+.main-container{
+  padding:3%;
+  background-color:white;
+  width:100%;
+  min-height:100vh;
+  text-align:center;
 }

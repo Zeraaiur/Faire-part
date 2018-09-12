@@ -22,8 +22,10 @@ class PricesController < ApplicationController
 
   def update
     params["prices"].each do |newprice|
-      Price.update(price_params(newprice))
+      @price = Price.find(newprice.first)
+      @price.update(price_params(newprice[1]))
     end
+    redirect_to root_path
   end
 
   private
@@ -31,5 +33,4 @@ class PricesController < ApplicationController
   def price_params(my_params)
     my_params.permit(:nombre, :unite, :fairepart_id)
   end
-
 end

@@ -1,0 +1,33 @@
+  <div class="notice"><%= notice %></div>
+  <div class="alert"><%= alert %></div>
+
+<% if !user_signed_in? %>
+<div class="admin-navbar">
+  <div class="admin-navbar-container">
+    <ul class="list-inline">
+      <li><%= link_to('accueil', root_path) %></li>
+      <li><%= link_to "admin", new_user_session_path%></li>
+    </ul>
+
+  </div>
+</div>
+<% end %>
+
+
+<% if user_signed_in? %>
+<div class="admin-mode">MODE ADMINISTRATEUR</div>
+<div class="admin-navbar">
+  <div>
+    <%= current_user.email %>
+  </div>
+  <div class="admin-navbar-container">
+    <ul class="list-inline">
+      <li><%= link_to('accueil', root_path) %></li>
+      <li><%= link_to('nouveau modèle de faire-part', faire_part_nouveau_path) %></li>
+      <li><%= link_to('déconnexion', destroy_user_session_path,  :method=>'delete') %></li>
+    </ul>
+
+  </div>
+
+</div>
+<% end %>

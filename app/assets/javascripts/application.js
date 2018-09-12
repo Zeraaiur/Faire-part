@@ -75,8 +75,6 @@ function isNumber(evt) {
   return true;
 }
 
-
-
 function isAllFieldFilled(){
 
   let count = 0
@@ -106,3 +104,5 @@ function isPriceGood(price){
   }
   isAllFieldFilled()
 }
+
+

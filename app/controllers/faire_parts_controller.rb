@@ -1,7 +1,10 @@
 class FairePartsController < ApplicationController
+  skip_before_action :authenticate_user!, :only => [:index, :show]
+
   def index
-    @PRIXENVELOPPE5X7 = 0.207
-    @PRIXENVELOPPE4X5 = 0.1725
+    @enveloppes = Enveloppe.all
+    # @PRIXENVELOPPE5X7 = 0.207
+    # @PRIXENVELOPPE4X5 = 0.1725
     @faireparts = Fairepart.all
     @formats = Fairepart.distinct.pluck(:format).sort
     @couleurs = Fairepart.distinct.pluck(:couleur)
@@ -28,6 +31,12 @@ class FairePartsController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  def destroy
+    @fairepart = Fairepart.find(params[:id])
+    @fairepart.destroy
+    redirect_to root_path
   end
 
   def show
@@ -91,10 +100,6 @@ class FairePartsController < ApplicationController
         format.js
       end
     end
-
-
-
-
   end
 
   private

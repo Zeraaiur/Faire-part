@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prix: MyString
+  impression: false
+  Fairepart_id: 
+
+two:
+  prix: MyString
+  impression: false
+  Fairepart_id: 

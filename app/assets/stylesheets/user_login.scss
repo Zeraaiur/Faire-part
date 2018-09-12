@@ -1,0 +1,17 @@
+.form-inputs{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+.login-info{
+  text-align:right;
+  label{
+
+  }
+  input{
+    margin:20px 0px;
+    min-width:280px;
+  }
+}
