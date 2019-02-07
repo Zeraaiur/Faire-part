@@ -15,7 +15,7 @@ User.destroy_all
 
 fairepart = Fairepart.new(
   slug: "pliant5x7couleur",
-  nom: "cartes pliantes, 5 x 7, couleur",
+  nom: "Faireparts pliants, 5 x 7, couleur",
   pliant:true,
   couleur:true,
   verso:true,
@@ -25,7 +25,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "pliant5x7nb",
-  nom: "cartes pliantes, 5 x 7, noir-blanc",
+  nom: "Faireparts pliants, 5 x 7, noir-blanc",
   pliant:true,
   couleur:false,
   verso:true,
@@ -35,7 +35,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "pliant4x5couleur",
-  nom:  "cartes pliantes, 4.25 x 5.5, couleur",
+  nom:  "Cartes réponses, 4.25 x 5.5, couleur",
   pliant:true,
   couleur:true,
   verso:true,
@@ -45,7 +45,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "pliant4x5nb",
-  nom: "cartes pliantes, 4.25 x 5.5, noir-blanc",
+  nom: "Cartes réponses, 4.25 x 5.5, noir-blanc",
   pliant:true,
   couleur:false,
   verso:true,
@@ -58,7 +58,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np5x7couleurrecto",
-  nom: "cartes non-pliantes, 5 x 7, couleur, recto",
+  nom: "Faireparts non-pliants, 5 x 7, couleur, recto",
   pliant:false,
   couleur:true,
   verso:false,
@@ -68,7 +68,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np5x7nbrecto",
-  nom: "cartes non-pliantes, 5 x 7, noir-blanc, recto",
+  nom: "Faireparts non-pliants, 5 x 7, noir-blanc, recto",
   pliant:false,
   couleur:false,
   verso:false,
@@ -78,7 +78,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np5x7couleurrv",
-  nom: "cartes non-pliantes, 5 x 7, couleur, recto-verso",
+  nom: "Faireparts non-pliants, 5 x 7, couleur, recto-verso",
   pliant:false,
   couleur:true,
   verso:true,
@@ -88,7 +88,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np5x7nbrv",
-  nom: "cartes non-pliantes, 5 x 7, noir-blanc, recto-verso",
+  nom: "Faireparts non-pliants, 5 x 7, noir-blanc, recto-verso",
   pliant:false,
   couleur:false,
   verso:true,
@@ -98,7 +98,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np4x5couleurrecto",
-  nom: "cartes non-pliantes, 4.25 x 5.5, couleur, recto",
+  nom: "Cartes réponses, 4.25 x 5.5, couleur, recto",
   pliant:false,
   couleur:true,
   verso:false,
@@ -108,7 +108,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np4x5nbrecto",
-  nom: "cartes non-pliantes, 4.25 x 5.5, noir-blanc, recto",
+  nom: "Cartes réponses, 4.25 x 5.5, noir-blanc, recto",
   pliant:false,
   couleur:false,
   verso:false,
@@ -118,7 +118,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np4x5couleurrv",
-  nom: "cartes non-pliantes, 4.25 x 5.5, couleur, recto-verso",
+  nom: "Cartes réponses, 4.25 x 5.5, couleur, recto-verso",
   pliant:false,
   couleur:true,
   verso:true,
@@ -128,7 +128,7 @@ fairepart.save!
 
 fairepart = Fairepart.new(
   slug: "np4x5nbrv",
-  nom: "cartes non-pliantes, 4.25 x 5.5, noir-blanc, recto-verso",
+  nom: "Cartes réponses, 4.25 x 5.5, noir-blanc, recto-verso",
   pliant:false,
   couleur:false,
   verso:true,

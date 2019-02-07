@@ -25,7 +25,7 @@
       <%= f.hidden_field :format, :value => @fairepart.format %>
 
       <hr>
-      <%= f.text_field :prix, :maxlength => 4, :onkeypress => "return isNumber(event)", :onchange => "return isAllFieldFilled()", :onblur => "return isPriceGood(this)", :onblur => "return validateEnveloppe()", :class => "price_text_field", :placeholder => "0.00" %> <i>$</i>
+      <%= f.text_field :prix, :maxlength => 4, :onkeypress => "return isNumber(event)", :onchange => "return isAllFieldFilled()", :onclick => "return isPriceGood(this)", :onclick => "return validateEnveloppe()", :class => "price_text_field", :placeholder => "0.00" %> <i>$</i>
 
       <hr>
 

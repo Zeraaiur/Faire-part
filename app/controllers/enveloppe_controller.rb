@@ -14,6 +14,7 @@ class EnveloppeController < ApplicationController
   end
 
   def edit
+    @enveloppes = Enveloppe.all
   end
 
   def update
