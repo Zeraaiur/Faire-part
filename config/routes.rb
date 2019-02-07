@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'faire_part/:id/enveloppe', to: "enveloppe#new", as: "new-enveloppe"
+  post 'enveloppe/create'
+
+  get 'enveloppe/edit'
+  get 'enveloppe/update'
+
+
+
   devise_for :users
   get 'faire_part/:id/prix', to: "prices#new", as: "new-price"
   post 'faire_part/:id/prix', to: 'prices#create', as: "create-price"

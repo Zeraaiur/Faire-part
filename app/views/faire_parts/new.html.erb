@@ -2,31 +2,29 @@
   <div class="tag-header"> NOUVEAU FAIRE-PART</div>
   <div class="tag-contain">
 
-<%= simple_form_for @fairepart, url: faire_part_path, remote: :true, method: :post  do |f| %>
-<%= f.input :format, placeholder: '?x?' %>
+    <%= simple_form_for @fairepart, url: faire_part_path, remote: :true, method: :post  do |f| %>
+    <%= f.input :format, placeholder: '?x?' %>
 
-<hr>
-<%= f.input :couleur,as: :radio_buttons, :collection => [["Impresion en couleur", true],["Impression en noir et blanc", false]], label_html: { class: 'new-form-label' }  %>
-<div class="couleur-error display-none error-message">Ce champs est obligatoire!</div>
-<hr>
+    <hr>
+    <%= f.input :couleur,as: :radio_buttons, :collection => [["Impresion en couleur", true],["Impression en noir et blanc", false]], label_html: { class: 'new-form-label' }  %>
+    <div class="couleur-error display-none error-message">Ce champs est obligatoire!</div>
+    <hr>
 
-<%= f.input :pliant,as: :radio_buttons, :collection => [["Carte pliante", true],["Carte non-pliante", false]], label_html: { class: 'new-form-label' }   %>
-<div class="pliant-error display-none error-message">Ce champs est obligatoire!</div>
-<hr>
+    <%= f.input :pliant,as: :radio_buttons, :collection => [["Carte pliante", true],["Carte non-pliante", false]], label_html: { class: 'new-form-label' }   %>
+    <div class="pliant-error display-none error-message">Ce champs est obligatoire!</div>
+    <hr>
 
-<%= f.input :verso,as: :radio_buttons, :collection => [["Impresion recto seulement", false],["Impression recto-verso", true]], label_html: { class: 'new-form-label' }   %>
-<div class="verso-error display-none error-message">Ce champs est obligatoire!</div>
-<hr>
+    <%= f.input :verso,as: :radio_buttons, :collection => [["Impresion recto seulement", false],["Impression recto-verso", true]], label_html: { class: 'new-form-label' }   %>
+    <div class="verso-error display-none error-message">Ce champs est obligatoire!</div>
+    <hr>
 
-<%= f.input :image %>
+    <%= f.input :image %>
 
-<hr>
+    <hr>
 
-<%= f.button :submit, :class => "btn-print", :value => "Créer le faire-part", :onclick => 'verifyNew();'
- %>
-<% end %>
-
-
+    <%= f.button :submit, :class => "btn-print", :value => "Créer le faire-part", :onclick => 'verifyNew();'
+    %>
+    <% end %>
   </div>
 </div>
 

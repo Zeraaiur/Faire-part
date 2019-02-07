@@ -69,5 +69,6 @@ gem 'cloudinary'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-gem 'bootstrap-sass', '3.2.0.2'
+
 gem 'devise'
+gem 'bootstrap-sass', '3.2.0.2'

@@ -106,3 +106,17 @@ function isPriceGood(price){
 }
 
 
+function validateEnveloppe(){
+
+  item = document.querySelector('.price_text_field')
+
+  if (item.value != "" && item.value != "0"){
+    document.getElementById("btn-enveloppe").disabled = false;
+    document.getElementById("btn-enveloppe").classList.remove("btn-disable");
+  }
+    else{
+      document.getElementById("btn-enveloppe").disabled = true;
+      document.getElementById("btn-enveloppe").classList.add("btn-disable");
+
+    }
+  };

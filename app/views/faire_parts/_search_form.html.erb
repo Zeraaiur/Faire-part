@@ -2,7 +2,7 @@
 <%= form_tag root_path, remote:true, method: :get, id: "form" do %>
 
 <div class="tag-col nombre-container">
-  <div class="tag-header"> NOMBRE DE FAIRE PART</div>
+  <div class="tag-header"> NOMBRE DE FAIREPARTS</div>
   <div class="tag-contain">
     <%= number_field_tag 'nombre', 25, min: 25, max:500, class: "nombre-input form-control", onchange: "numberFieldValidate(event)" %>
   </div>
