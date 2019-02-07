@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Price.destroy_all
+Pricesreponse.destroy_all
 Fairepart.destroy_all
 Reponse.destroy_all
 Enveloppe.destroy_all
+
 User.destroy_all
 
 # ====///FAIREPARTS///========
@@ -137,28 +139,6 @@ my_hash.each do |key, value|
   price.save!
 end
 
-# fairepart = Fairepart.find_by(slug:"pliant4x5couleur")
-# my_hash = { 25 => 2.26, 50 => 1.63, 75 => 1.55, 100 => 1.37, 125 => 1.35, 150 => 1.26, 175 => 1.25, 200 => 1.22}
-# my_hash.each do |key, value|
-#   price = Price.new(
-#     nombre: key,
-#     unite: value,
-#     fairepart_id: fairepart.id
-#     )
-#   price.save!
-# end
-
-# fairepart = Fairepart.find_by(slug:"pliant4x5nb")
-# my_hash = { 25 => 1.72, 50 => 1.30, 75 => 1.22, 100 => 1.17, 125 => 1.15, 150 => 1.13, 175 => 1.12, 200 => 1.02}
-# my_hash.each do |key, value|
-#   price = Price.new(
-#     nombre: key,
-#     unite: value,
-#     fairepart_id: fairepart.id
-#     )
-#   price.save!
-# end
-
 fairepart = Fairepart.find_by(slug:"np5x7couleurrecto")
 my_hash = { 25 => 1.40, 50 => 1.01, 75 => 0.77, 100 => 0.72, 125 => 0.69, 150 => 0.67, 175 => 0.66, 200 => 0.65}
 my_hash.each do |key, value|
@@ -203,60 +183,53 @@ my_hash.each do |key, value|
   price.save!
 end
 
-# fairepart = Fairepart.find_by(slug:"np4x5couleurrecto")
-# my_hash = { 25 => 1.18, 50 => 0.79, 75 => 0.70, 100 => 0.60, 125 => 0.50, 150 => 0.48, 175 => 0.47, 200 => 0.46}
-# my_hash.each do |key, value|
-#   price = Price.new(
-#     nombre: key,
-#     unite: value,
-#     fairepart_id: fairepart.id
-#     )
-#   price.save!
-# end
 
-# fairepart = Fairepart.find_by(slug:"np4x5nbrecto")
-# my_hash = { 25 => 0.89, 50 => 0.59, 75 => 0.50, 100 => 0.46, 125 => 0.43, 150 => 0.37, 175 => 0.35, 200 => 0.34}
-# my_hash.each do |key, value|
-#   price = Price.new(
-#     nombre: key,
-#     unite: value,
-#     fairepart_id: fairepart.id
-#     )
-#   price.save!
-# end
 
-# fairepart = Fairepart.find_by(slug:"np4x5couleurrv")
-# my_hash = { 25 => 1.45, 50 => 1.03, 75 => 0.77, 100 => 0.72, 125 => 0.70, 150 => 0.68, 175 => 0.66, 200 => 0.65}
-# my_hash.each do |key, value|
-#   price = Price.new(
-#     nombre: key,
-#     unite: value,
-#     fairepart_id: fairepart.id
-#     )
-#   price.save!
-# end
+reponse = Reponse.find_by(slug:"np4x5couleurrecto")
+my_hash = { 25 => 1.18, 50 => 0.79, 75 => 0.70, 100 => 0.60, 125 => 0.50, 150 => 0.48, 175 => 0.47, 200 => 0.46}
+my_hash.each do |key, value|
+  pricesreponse = Pricesreponse.new(
+    nombre: key,
+    unite: value,
+    reponse_id: reponse.id
+    )
+  pricesreponse.save!
 
-# fairepart = Fairepart.find_by(slug:"np4x5nbrv")
-# my_hash = { 25 => 1.05, 50 => 0.76, 75 => 0.67, 100 => 0.55, 125 => 0.53, 150 => 0.51, 175 => 0.50, 200 => 0.48}
-# my_hash.each do |key, value|
-#   price = Price.new(
-#     nombre: key,
-#     unite: value,
-#     fairepart_id: fairepart.id
-#     )
-#   price.save!
-# end
+end
 
-# fairepart = Fairepart.find_by(slug:"np4x5nbrv")
-# my_hash = { 25 => 1.05, 50 => 0.76, 75 => 0.67, 100 => 0.55, 125 => 0.53, 150 => 0.51, 175 => 0.50, 200 => 0.48}
-# my_hash.each do |key, value|
-#   price = Price.new(
-#     nombre: key,
-#     unite: value,
-#     fairepart_id: fairepart.id
-#     )
-#   price.save!
-# end
+reponse = Reponse.find_by(slug:"np4x5nbrecto")
+my_hash = { 25 => 0.89, 50 => 0.59, 75 => 0.50, 100 => 0.46, 125 => 0.43, 150 => 0.37, 175 => 0.35, 200 => 0.34}
+my_hash.each do |key, value|
+  pricesreponse = Pricesreponse.new(
+    nombre: key,
+    unite: value,
+    reponse_id: reponse.id
+    )
+  pricesreponse.save!
+end
+
+reponse = Reponse.find_by(slug:"np4x5couleurrv")
+my_hash = { 25 => 1.45, 50 => 1.03, 75 => 0.77, 100 => 0.72, 125 => 0.70, 150 => 0.68, 175 => 0.66, 200 => 0.65}
+my_hash.each do |key, value|
+  pricesreponse = Pricesreponse.new(
+    nombre: key,
+    unite: value,
+    reponse_id: reponse.id
+    )
+  pricesreponse.save!
+end
+
+reponse = Reponse.find_by(slug:"np4x5nbrv")
+my_hash = { 25 => 1.05, 50 => 0.76, 75 => 0.67, 100 => 0.55, 125 => 0.53, 150 => 0.51, 175 => 0.50, 200 => 0.48}
+my_hash.each do |key, value|
+  pricesreponse = Pricesreponse.new(
+    nombre: key,
+    unite: value,
+    reponse_id: reponse.id
+    )
+  pricesreponse.save!
+end
+
 
 # ====///Enveloppe///========
 enveloppe = Enveloppe.new(

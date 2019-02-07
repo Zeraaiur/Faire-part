@@ -1,3 +1,5 @@
+
+
 class Price < ApplicationRecord
   belongs_to :fairepart
   validates :nombre, numericality: { only_integer: true }
