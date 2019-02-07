@@ -3,10 +3,7 @@ class FairePartsController < ApplicationController
 
   def index
     @enveloppes = Enveloppe.all
-    # @PRIXENVELOPPE5X7 = 0.207
-    # @PRIXENVELOPPE4X5 = 0.1725
     @faireparts = Fairepart.all
-    @formats = Fairepart.distinct.pluck(:format).sort
     @couleurs = Fairepart.distinct.pluck(:couleur)
     @prices = Price.all
 
@@ -109,50 +106,19 @@ class FairePartsController < ApplicationController
   end
 
   def filter_faireparts
-    if @myformat.present? && @mycouleur.present?  && @mypliant.present? && @myverso.present?
-      filter_by_format
+    if @mycouleur.present? && @mypliant.present? && @myverso.present?
       filter(@mycouleur, "couleur")
       filter(@mypliant, "pliant")
       filter(@myverso, "verso")
-
-    elsif @myformat.present? && @mycouleur.present?  && @mypliant.present?
-      filter_by_format
+    elsif @mycouleur.present?  && @mypliant.present?
       filter(@mycouleur, "couleur")
       filter(@mypliant, "pliant")
-    elsif @myformat.present? && @mycouleur.present?  && @myverso.present?
-      filter_by_format
+    elsif @mycouleur.present?  && @myverso.present?
       filter(@mycouleur, "couleur")
       filter(@myverso, "verso")
-    elsif @myformat.present? && @mypliant.present?  && @myverso.present?
-      filter_by_format
+    elsif @mypliant.present?  && @myverso.present?
       filter(@mypliant, "pliant")
       filter(@myverso, "verso")
-    elsif @mycouleur.present? && @mypliant.present?  && @myverso.present?
-      filter(@mycouleur, "couleur")
-      filter(@myverso, "verso")
-      filter(@mypliant, "pliant")
-
-    elsif @myformat.present? && @mycouleur.present?
-      filter_by_format
-      filter(@mycouleur, "couleur")
-    elsif @myformat.present? && @mypliant.present?
-      filter_by_format
-      filter(@mypliant, "pliant")
-    elsif @myformat.present? && @myverso.present?
-      filter_by_format
-      filter(@myverso, "verso")
-    elsif @mypliant.present? && @mycouleur.present?
-      filter(@mypliant, "pliant")
-      filter(@mycouleur, "couleur")
-    elsif @mypliant.present? && @myverso.present?
-      filter(@mypliant, "pliant")
-      filter(@myverso, "verso")
-    elsif @mycouleur.present? && @myverso.present?
-      filter(@mycouleur, "couleur")
-      filter(@myverso, "verso")
-
-    elsif @myformat.present?
-      filter_by_format
     elsif @mycouleur.present?
       filter(@mycouleur, "couleur")
     elsif @mypliant.present?
@@ -162,12 +128,12 @@ class FairePartsController < ApplicationController
     end
   end
 
-  def filter_by_format
-    @faireparts = @faireparts.where("format LIKE ?
-      OR format LIKE ? OR format LIKE ? OR format LIKE ?
-      OR format LIKE ? OR format LIKE ?", @myformat[:format0], @myformat[:format1],
-      @myformat[:format2], @myformat[:format3], @myformat[:format4], @myformat[:format5])
-  end
+  # def filter_by_format
+  #   @faireparts = @faireparts.where("format LIKE ?
+  #     OR format LIKE ? OR format LIKE ? OR format LIKE ?
+  #     OR format LIKE ? OR format LIKE ?", @myformat[:format0], @myformat[:format1],
+  #     @myformat[:format2], @myformat[:format3], @myformat[:format4], @myformat[:format5])
+  # end
 
   def filter(val1, val2)
     if val1[:value0] == "true"

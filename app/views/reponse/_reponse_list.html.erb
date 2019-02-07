@@ -1,0 +1,87 @@
+
+<div class="result">
+  <% if @reponses %>
+  <% @reponses.each do |reponse| %>
+
+  <div class="card-outside">
+    <div class="card">
+
+      <div class="card-image-container">
+
+        <%= cl_image_tag(reponse.slug, :class => "card-image") %>
+
+        <div class="card-pliant">
+          <%= reponse.format %>
+        </div>
+
+        <div class="card-couleur">
+          <% if reponse.couleur == true %>
+          Impression couleur
+          <br>
+            <% if reponse.verso == true %>
+            recto-verso
+            <% else %>
+            recto seulement
+            <% end %>
+
+          <% else %>
+            Impression noir et blanc
+           <br>
+            <% if reponse.verso == true %>
+            recto-verso
+            <% else %>
+          recto seulement
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+
+
+      <div class="card-footer">
+
+        <div class="footer-container">
+
+          <% if !@mynombre %>
+          <% @mynombre = 25 %>
+          <% end %>
+
+          <%= @mynombre %> unités :
+
+          <% @myprice = @prices.select { |m| m.reponse_id == reponse.id && m.nombre == @myprice_unit} %>
+
+          <% if @myprice[0] %>
+
+          <% mypricefinal = number_with_precision(@myprice[0].unite * @mynombre.to_i, precision: 2) %>
+
+          <% end %>
+
+          <%= mypricefinal %> $*
+
+
+          <!-- ============ Enveloppes ================ -->
+          <% if @myenveloppe["value"] == "true" %>
+
+          <% @enveloppe = @enveloppes.find_by(format: reponse.format) %>
+
+          <div class="prix-enveloppe"><%= @mynombre %> enveloppes :
+            <%= @myprice_enveloppe = number_with_precision(@enveloppe.prix * @mynombre.to_i, precision: 2) %> $*
+          </div>
+          <% end %>
+          <!-- ================ -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
